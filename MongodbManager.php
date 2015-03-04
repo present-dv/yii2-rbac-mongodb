@@ -577,7 +577,7 @@ class MongodbManager extends BaseManager
      * @return boolean whether a loop exists
      */
     public function canAddChild($parent, $child) {
-        return $this->detectLoop($parent, $child);
+        return !$this->detectLoop($parent, $child);
     }
 
     /**
