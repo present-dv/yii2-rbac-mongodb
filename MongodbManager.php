@@ -465,7 +465,7 @@ class MongodbManager extends BaseManager
      * @param string $roleName the role name
      * @return The assignment information. An empty array will be returned if there is no user assigned to the role.
      */
-    public function getRoleAssigments($roleName) {
+    public function getRoleAssignments($roleName) {
         $query = (new Query)->from($this->assignmentTable)
             ->where(['item_name' => $roleName]);
 
