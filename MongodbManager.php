@@ -461,7 +461,7 @@ class MongodbManager extends BaseManager
     }
 
     /**
-     * Return all user assigment information for the specified role
+     * Return all user assignment information for the specified role
      * @param string $roleName the role name
      * @return The assignment information. An empty array will be returned if there is no user assigned to the role.
      */
@@ -568,6 +568,16 @@ class MongodbManager extends BaseManager
             }
         }
         return false;
+    }
+
+    /**
+     * Public wrapper for detectLoop function
+     * @param Item $parent the parent item
+     * @param Item $child the child item to be added to the hierarchy
+     * @return boolean whether a loop exists
+     */
+    public function canAddChild($parent, $child) {
+        return $this->detectLoop($parent, $child);
     }
 
     /**
